@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thank you — Business Korean for SUCCESS</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.ty{padding:80px 0 100px;text-align:center}
+.ty .big{font-family:var(--disp);font-size:120px;color:var(--red);line-height:1}
+.ty h1{font-size:44px;font-weight:900;margin-top:18px}
+.ty p.lead{font-size:19px;color:var(--ink2);margin:14px auto 0;max-width:620px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:980px;margin:48px auto 0;text-align:left}
+.steps .card{padding:26px}
+.steps i{display:flex;width:44px;height:44px;border-radius:50%;align-items:center;justify-content:center;font-style:normal;font-weight:900;color:#fff;font-size:20px}
+.steps b{display:block;font-size:19px;margin-top:14px}
+.steps p{font-size:15px;color:var(--ink2);margin-top:6px}
+.order{display:inline-flex;gap:18px;margin-top:26px;background:#fff;border-radius:14px;padding:12px 20px;font-size:14px;color:var(--mute)}
+.order b{color:var(--ink)}
+@media (max-width:820px){.steps{grid-template-columns:1fr}}
+</style><!-- Digistore24 promocode (affiliate tracking) -->
+<script src="https://www.digistore24.com/service/digistore.js"></script>
+<script>digistorePromocode({ "product_id": 738726, "adjust_domain": true });</script>
+</head>
+<body>
+<div id="site-header"></div>
+<section class="ty"><div class="wrap">
+  <div class="big">감사합니다!</div>
+  <h1>You're in. Welcome to the class.</h1>
+  <p class="lead">Your payment was successful. <b>Business Korean for SUCCESS is a digital product</b> — an online video course with PDF downloads. Nothing will be shipped. Create your password below to open your classroom right now.</p>
+  <form id="act" class="card" style="max-width:460px;margin:26px auto 0;padding:26px;text-align:left" novalidate>
+    <div class="field"><label>Email</label><input id="em" readonly></div>
+    <div class="field"><label for="pw">Create a password (min. 8 characters)</label><input id="pw" type="password" autocomplete="new-password"></div>
+    <div class="err" id="aerr"></div>
+    <button class="btn btn-buy btn-lg" style="width:100%" type="submit">Create account &amp; open classroom →</button>
+    <p class="muted" style="font-size:13px;margin-top:10px">Use this email and password to log in at jessicabusinesskorean.com/login.html anytime.</p>
+  </form>
+  <div class="order" id="order"></div>
+  <div class="steps">
+    <div class="card"><i style="background:var(--red)">1</i><b>Create your password</b><p>Use the form above. Your Digistore24 receipt is sent to your email (check spam/promotions). Lost this page? Email us with your order ID.</p></div>
+    <div class="card"><i style="background:var(--yel);color:var(--ink)">2</i><b>Open your classroom</b><p>Log in with the email you used at checkout and start with Lesson 1 — Welcome.</p></div>
+    <div class="card"><i style="background:var(--blu)">3</i><b>Download your materials</b><p>Grab the lesson slides, phrase cheat sheet and email templates.</p></div>
+  </div>
+  <div style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a class="btn btn-buy btn-lg" id="go" href="login.html">Go to my classroom →</a>
+    <a class="btn btn-ghost btn-lg" href="resources.html">Downloads</a>
+  </div>
+  <p style="margin-top:30px;font-size:17px;font-weight:800;color:var(--ink);background:#fff;display:inline-block;padding:12px 20px;border-radius:12px">The withdrawal from your account will be done by Digistore24.</p>
+  <p class="muted" style="margin-top:10px;font-size:14px">Need help? <a data-mail></a></p>
+</div></section>
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+<script>
+// Digistore24 "Thank you URL" can append order info, e.g.
+//   thank-you.html?order_id=%ORDER_ID%&email=%EMAIL%
+const q = new URLSearchParams(location.search);
+const email = q.get('email'), oid = q.get('order_id');
+if (email) { document.getElementById('em').value = email; }
+document.getElementById('order').innerHTML = oid ? `Order <b>#${oid}</b>${email ? ' · ' + email : ''}` : 'Order confirmation sent by <b>Digistore24</b>';
+if (!oid) document.getElementById('order').style.display = 'inline-flex';
+// Signed Digistore24 thank-you URL → /api/activate verifies sha_sign and creates the student
+document.getElementById('act').onsubmit = async (ev) => {
+  ev.preventDefault();
+  const err = document.getElementById('aerr'); err.textContent = '';
+  try {
+    const r = await AUTH.api('/api/activate', { params: Object.fromEntries(q), password: document.getElementById('pw').value });
+    AUTH.login(r.email, r.token); location.href = 'classroom.html';
+  } catch (x) { err.textContent = x.message; }
+};
+if (!q.get('sha_sign')) document.getElementById('act').style.display = 'none';
+</script>
+</body></html>

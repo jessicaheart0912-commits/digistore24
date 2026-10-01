@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classroom — Business Korean for SUCCESS</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js"></script>
+<script src="assets/videos.js" onerror="this.remove()"></script>
+<script>AUTH.require();</script>
+<style>
+body{background:#F6EFE2}
+.cls{display:grid;grid-template-columns:1fr 380px;gap:24px;max-width:1440px;margin:0 auto;padding:24px 28px 60px}
+.player{background:var(--ink);border-radius:24px;overflow:hidden;aspect-ratio:16/9;position:relative}
+.player video{width:100%;height:100%;object-fit:contain;background:#000}
+.player .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:30px;background:repeating-linear-gradient(135deg,#1F1D3C 0 16px,#23214A 16px 32px)}
+.player .ph .k{font-family:var(--disp);font-size:64px}
+.player .ph p{color:#CFCBE0;margin-top:8px;font-size:15px;font-family:ui-monospace,monospace}
+.meta{display:flex;align-items:flex-start;gap:18px;margin-top:20px}
+.meta h1{font-size:32px;font-weight:900}
+.meta .ko-t{font-family:var(--ko);font-weight:700;color:var(--ink2);font-size:18px;margin-top:4px}
+.meta .acts{margin-left:auto;display:flex;gap:10px;flex:none}
+.done-btn.on{background:var(--grn);color:#fff;box-shadow:none}
+.tabs{display:flex;gap:6px;margin-top:22px;border-bottom:2px solid var(--line)}
+.tabs button{border:0;background:none;font:700 15px var(--en);padding:12px 16px;color:var(--mute);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tabs button.on{color:var(--ink);border-color:var(--red)}
+.tab{padding:20px 2px;display:none}.tab.on{display:block}
+.tab p{color:var(--ink2)}
+.notes{width:100%;min-height:140px;border-radius:16px;border:2px solid var(--line);padding:14px 16px;font:500 16px var(--en);resize:vertical;background:#fff}
+.side{background:#fff;border-radius:24px;overflow:hidden;align-self:start;position:sticky;top:94px;max-height:calc(100vh - 118px);display:flex;flex-direction:column}
+.prog{padding:20px 22px;border-bottom:1px solid var(--line)}
+.prog .top{display:flex;justify-content:space-between;font-weight:700;font-size:15px}
+.bar{height:12px;border-radius:99px;background:var(--cream);margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--band);border-radius:99px;transition:width .4s}
+.list{overflow:auto;flex:1}
+.pg{padding:14px 22px 8px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px;color:var(--mute);position:sticky;top:0;background:#fff}
+.pg i{width:10px;height:10px;border-radius:3px}
+.it{display:flex;align-items:center;gap:12px;padding:10px 22px;cursor:pointer;font-size:15px;border-left:4px solid transparent}
+.it:hover{background:var(--cream)}
+.it.cur{background:var(--cream);border-left-color:var(--red);font-weight:700}
+.it .ck{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center}
+.it.dn .ck{background:var(--grn);border-color:var(--grn)}
+.it.dn .ck::after{content:'';width:9px;height:5px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.it .t{flex:1;line-height:1.3}
+.it .t small{display:block;font-family:var(--ko);color:var(--mute);font-weight:600;font-size:13px}
+.it .d{font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+.welcome{display:flex;align-items:center;gap:14px;background:#fff;border-radius:18px;padding:14px 18px;margin-bottom:18px;font-size:15px}
+.welcome b{font-size:16px}
+.welcome .btn{margin-left:auto}
+@media (max-width:1000px){.cls{grid-template-columns:1fr}.side{position:static;max-height:none}}
+</style></head>
+<body>
+<div id="site-header" data-mode="app"></div>
+<div class="cls">
+  <main>
+    <div class="welcome" id="wel"></div>
+    <div class="player" id="player"></div>
+    <div class="meta">
+      <div><span class="tag" id="ptag"></span><h1 id="lt" style="margin-top:8px"></h1><div class="ko-t" id="lk"></div></div>
+      <div class="acts">
+        <button class="btn btn-ghost btn-sm" id="prev">← Prev</button>
+        <button class="btn btn-ghost btn-sm done-btn" id="done">Mark complete</button>
+        <button class="btn btn-ink btn-sm" id="next">Next →</button>
+      </div>
+    </div>
+    <div class="tabs"><button class="on" data-t="ov">Overview</button><button data-t="nt">My notes</button><button data-t="dl">Downloads</button></div>
+    <div class="tab on" id="ov"></div>
+    <div class="tab" id="nt"><textarea class="notes" id="notes" placeholder="Write down phrases you want to remember…"></textarea><p class="muted" style="font-size:13px;margin-top:6px">Saved automatically on this device.</p></div>
+    <div class="tab" id="dl"><p>Slides and worksheets for every chapter are on the <a href="resources.html" style="font-weight:700">Downloads</a> page.</p></div>
+  </main>
+  <aside class="side">
+    <div class="prog"><div class="top"><span>Your progress</span><span id="pc"></span></div><div class="bar"><i id="pb"></i></div></div>
+    <div class="list" id="list"></div>
+  </aside>
+</div>
+<script>
+const colors={pur:'var(--pur)',red:'var(--red)',yel:'var(--yel)',blu:'var(--blu)',grn:'var(--grn)'};
+const tagc={0:'t-blu',1:'t-red',2:'t-yel',3:'t-blu',4:'t-grn'};
+let cur=+(new URLSearchParams(location.search).get('l')||localStorage.getItem('jbk_cur')||1);
+const u=AUTH.get();
+document.getElementById('wel').innerHTML=`<span style="font-size:22px">👋</span><div><b>반가워요, ${u.email.split('@')[0]}!</b><div class="muted" style="font-size:14px">Welcome to Business Korean for SUCCESS.</div></div>`;
+
+function renderList(){
+  document.getElementById('list').innerHTML=PARTS.map(p=>{
+    const ls=LESSONS.filter(l=>l.part===p.n);
+    return `<div class="pg"><i style="background:${colors[p.c]}"></i>${p.n?'Part '+p.n+' · ':''}${p.en} ${p.n?'· '+p.ko:''}</div>`+
+      ls.map(l=>`<div class="it ${l.id===cur?'cur':''} ${PROGRESS.done(l.id)?'dn':''}" data-id="${l.id}"><span class="ck"></span><span class="t">${l.ch?'Ch '+String(l.ch).padStart(2,'0')+' · ':''}${l.t}${l.ko&&l.ch?`<small>${l.ko}</small>`:''}</span><span class="d">${fmt(l.d)}</span></div>`).join('');
+  }).join('');
+  document.querySelectorAll('.it').forEach(e=>e.onclick=()=>go(+e.dataset.id));
+  const n=PROGRESS.count(),t=LESSONS.length;
+  document.getElementById('pc').textContent=`${n} / ${t} · ${Math.round(n/t*100)}%`;
+  document.getElementById('pb').style.width=(n/t*100)+'%';
+}
+function go(id){
+  cur=Math.min(Math.max(1,id),LESSONS.length); localStorage.setItem('jbk_cur',cur);
+  const l=LESSONS.find(x=>x.id===cur), p=PARTS[l.part];
+  const pl=document.getElementById('player');
+  const want=cur;
+  pl.innerHTML=`<div class="ph"><p>Loading lesson…</p></div>`;
+  AUTH.api('/api/video?l='+cur).then(r=>{
+    if(want!==cur) return;
+    pl.innerHTML=`<iframe src="${r.url}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen></iframe>`;
+  }).catch(e=>{ pl.innerHTML=`<div class="ph"><div class="k">${l.ko||p.ko}</div><p>${e.message}</p></div>`; });
+  if(false){
+    pl.innerHTML=`<video controls playsinline preload="metadata" src="${MEDIA[cur]}" poster="${POSTER[cur]||''}"></video>`;
+    pl.querySelector('video').onended=()=>{PROGRESS.set(cur,true);renderList();syncDone();toast('Lesson complete! 수고하셨습니다 🎉');};
+  } else {
+    pl.innerHTML=`<div class="ph"><div class="k">${l.ko||p.ko}</div><div style="font-weight:800;font-size:22px;margin-top:6px">Lesson ${String(cur).padStart(2,'0')} · ${l.t}</div><p>[ video: lesson ${String(cur).padStart(2,'0')} — connect your video host ]</p></div>`;
+  }
+  const tg=document.getElementById('ptag'); tg.className='tag '+tagc[l.part]; tg.textContent=(p.n?'Part '+p.n+' · '+p.en:'Welcome')+' · Lesson '+cur+' of '+LESSONS.length;
+  document.getElementById('lt').textContent=(l.ch?'Ch '+String(l.ch).padStart(2,'0')+' · ':'')+l.t;
+  document.getElementById('lk').textContent=l.ch?l.ko:'';
+  document.getElementById('ov').innerHTML=l.ch
+    ?`<p><b>In this lesson:</b> 3 key expressions for ${l.t.toLowerCase()}, each spoken slowly twice, followed by a real-life practice scene and grammar &amp; culture tips.</p><p style="margin-top:10px">Tip: pause after each phrase and repeat it out loud. Then write your favorite one in <b>My notes</b>.</p>`
+    :`<p>${l.t} — ${fmt(l.d)}.</p>`;
+  document.getElementById('notes').value=localStorage.getItem('jbk_note_'+cur)||'';
+  document.getElementById('prev').disabled=cur===1; document.getElementById('next').disabled=cur===LESSONS.length;
+  syncDone(); renderList();
+  history.replaceState(null,'','?l='+cur);
+}
+function syncDone(){const b=document.getElementById('done');const d=PROGRESS.done(cur);b.classList.toggle('on',d);b.textContent=d?'✓ Completed':'Mark complete';}
+document.getElementById('done').onclick=()=>{PROGRESS.set(cur,!PROGRESS.done(cur));syncDone();renderList();};
+document.getElementById('prev').onclick=()=>go(cur-1);
+document.getElementById('next').onclick=()=>{PROGRESS.set(cur,true);go(cur+1);};
+document.getElementById('notes').oninput=e=>localStorage.setItem('jbk_note_'+cur,e.target.value);
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button,.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById(b.dataset.t).classList.add('on');});
+go(cur);
+</script>
+</body></html>

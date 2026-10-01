@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business Korean for SUCCESS — Online Course by Jessica Lee</title>
+<meta name="description" content="Real Korean for the Korean workplace. 22 chapters, 66 business phrases, 33 video lessons. Taught in English by interpreter Jessica Lee.">
+<meta property="og:image" content="media/og.png">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* offer bar */
+.offer{background:var(--ink);color:#fff;font-size:15px;font-weight:600}
+.offer .wrap{display:flex;align-items:center;justify-content:center;gap:16px;height:46px}
+.offer b{color:var(--yel)}
+.cd{display:inline-flex;gap:6px;font-variant-numeric:tabular-nums}
+.cd span{background:#2E2B52;border-radius:6px;padding:3px 7px;font-weight:800}
+
+/* hero */
+.hero{padding:64px 0 90px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:76px;font-weight:900;line-height:.95;letter-spacing:-.035em;margin-top:22px}
+.hero h1 span{display:block;color:var(--red)}
+.hero h1 span i{font-style:normal;color:var(--yel)}
+.hero .ko-t{font-family:var(--disp);font-size:34px;margin-top:20px}
+.hero .lead{font-size:20px;color:var(--ink2);margin-top:14px;max-width:540px}
+.hero .cta{display:flex;align-items:center;gap:18px;margin-top:34px;flex-wrap:wrap}
+.price{display:flex;align-items:baseline;gap:10px}
+.price b{font-size:34px;font-weight:900}
+.price s{color:var(--mute);font-size:19px}
+.price small{font-weight:700;color:var(--grn);font-size:14px}
+.trust{display:flex;gap:18px;margin-top:22px;font-size:14px;font-weight:600;color:var(--ink2);flex-wrap:wrap}
+.trust span{display:flex;align-items:center;gap:6px}
+.trust i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.vid-card{position:relative;border-radius:28px;overflow:hidden;background:var(--ink);box-shadow:0 30px 60px rgba(27,25,52,.18);aspect-ratio:16/9}
+.vid-card video{width:100%;height:100%;object-fit:cover}
+.vid-card .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;background:linear-gradient(0deg,rgba(27,25,52,.45),rgba(27,25,52,0) 55%)}
+.vid-card .play i{width:92px;height:92px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 0 #B8263A}
+.vid-card .play i::after{content:'';border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:7px}
+.vid-card .cap{position:absolute;left:22px;bottom:18px;color:#fff;font-weight:700;font-size:15px}
+.hero-jg{position:absolute;right:-40px;top:30px;display:grid;grid-template-columns:repeat(3,54px);gap:8px;opacity:.9;z-index:-1}
+.hero-jg i{width:54px;height:54px;border-radius:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.stats div{background:#fff;border-radius:18px;padding:16px;text-align:center;box-shadow:0 1px 0 var(--line)}
+.stats b{display:block;font-size:30px;font-weight:900}
+.stats span{font-size:12px;font-weight:700;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:980px){.hero .wrap{grid-template-columns:1fr}.hero h1{font-size:56px}}
+
+/* pain */
+.pain{background:var(--ink);color:#fff}
+.pain .sec-h h2{color:#fff}.pain .sec-h p{color:#CFCBE0}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.pain-grid .p{background:#2A2848;border-radius:22px;padding:28px}
+.pain-grid .p .k{font-family:var(--disp);font-size:44px}
+.pain-grid .p .e{font-weight:700;font-size:18px;margin-top:4px}
+.pain-grid .p p{color:#CFCBE0;font-size:16px;margin-top:10px}
+.pain-grid .p:nth-child(1){border-top:8px solid var(--red)}.pain-grid .p:nth-child(2){border-top:8px solid var(--yel)}.pain-grid .p:nth-child(3){border-top:8px solid var(--blu)}
+@media (max-width:860px){.pain-grid{grid-template-columns:1fr}}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+.cmp .h{border-radius:14px;padding:12px 20px;color:#fff;font-weight:800;letter-spacing:.14em;font-size:14px}
+.cmp .c{background:#fff;border-radius:18px;padding:20px 24px}
+.cmp .c b{display:block;font-family:var(--ko);font-size:22px;font-weight:800}
+.cmp .c span{font-size:15px;color:var(--mute)}
+.cmp .bad b{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px;color:var(--ink2)}
+.cmp .good{box-shadow:inset 0 0 0 3px var(--grn)}
+
+/* learn */
+.learn{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.learn div{background:#fff;border-radius:20px;padding:24px;border-top:8px solid var(--c)}
+.learn b{display:block;font-size:18px;font-weight:800;line-height:1.3}
+.learn p{font-size:15px;color:var(--ink2);margin-top:8px}
+@media (max-width:980px){.learn{grid-template-columns:1fr 1fr}}
+
+/* preview */
+.prev{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.prev .pv{overflow:hidden}
+.prev .pv .vv{aspect-ratio:16/9;background:var(--ink)}
+.prev .pv .vv video{width:100%;height:100%;object-fit:cover}
+.prev .pv .meta{padding:18px 22px;display:flex;align-items:center;gap:12px}
+.prev .pv .meta b{font-size:18px}
+@media (max-width:860px){.prev{grid-template-columns:1fr}}
+
+/* curriculum */
+.parts{display:grid;gap:14px;margin-top:40px}
+.part{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.part summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;padding:20px 24px}
+.part summary::-webkit-details-marker{display:none}
+.part .pk{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:28px;color:#fff;flex:none}
+.part .pt b{display:block;font-size:20px;font-weight:800}
+.part .pt span{font-size:14px;color:var(--mute);font-weight:600}
+.part .pm{margin-left:auto;font-size:14px;font-weight:700;color:var(--mute);white-space:nowrap}
+.part .chev{width:14px;height:14px;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg);transition:transform .2s;margin:0 6px 4px 8px}
+.part[open] .chev{transform:rotate(225deg);margin-bottom:-4px}
+.part ol{list-style:none;border-top:1px solid var(--line)}
+.part li{display:flex;align-items:center;gap:14px;padding:13px 24px;border-bottom:1px dashed var(--line);font-size:16px}
+.part li:last-child{border-bottom:0}
+.part li .n{width:28px;font-weight:800;color:var(--mute);font-size:13px}
+.part li .ko{font-weight:700;color:var(--ink2);font-size:15px}
+.part li .d{margin-left:auto;font-size:14px;color:var(--mute);font-variant-numeric:tabular-nums}
+.part li .free{background:var(--grn-s);color:#0B7A54;font-size:11px;font-weight:800;letter-spacing:.1em;border-radius:999px;padding:3px 9px}
+
+/* inside */
+.inside{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.inside .card{overflow:hidden}
+.inside img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.inside .card div{padding:18px 20px}
+.inside b{font-size:17px}
+.inside p{font-size:15px;color:var(--ink2);margin-top:4px}
+@media (max-width:860px){.inside{grid-template-columns:1fr}}
+
+/* book */
+.book{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:center}
+.book img{border-radius:10px;box-shadow:18px 22px 0 var(--yel),0 30px 60px rgba(27,25,52,.2);transform:rotate(-3deg)}
+.book ul{list-style:none;margin-top:22px;display:grid;gap:10px}
+.book li{display:flex;gap:12px;font-size:17px}
+.book li::before{content:'';flex:none;width:22px;height:22px;border-radius:50%;background:var(--grn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;margin-top:2px}
+@media (max-width:860px){.book{grid-template-columns:1fr}.book img{max-width:260px}}
+
+/* instructor */
+.inst{display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center}
+.inst .ph{border-radius:30px;overflow:hidden;background:var(--pnk-s);aspect-ratio:4/5;position:relative}
+.inst .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.inst .ph .nm{position:absolute;left:0;right:0;bottom:0;background:var(--ink);color:#fff;padding:16px 22px;font-weight:800;font-size:22px}
+.inst .ph .nm span{font-family:var(--ko);font-weight:600;opacity:.8;margin-left:6px}
+.inst ul{list-style:none;margin-top:22px;display:grid;gap:10px}
+.inst li{background:#fff;border-radius:16px;padding:14px 18px;display:flex;gap:14px;align-items:center;font-size:16px}
+.inst li i{width:12px;height:12px;border-radius:50%;flex:none}
+.inst blockquote{margin-top:22px;font-size:19px;font-style:italic;color:var(--ink2);border-left:0;padding:0}
+@media (max-width:900px){.inst{grid-template-columns:1fr}}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.rev{padding:26px}
+.rev .st{color:var(--yel);font-size:20px;letter-spacing:2px}
+.rev p{margin-top:10px;font-size:16px;color:var(--ink2)}
+.rev .who{display:flex;gap:12px;align-items:center;margin-top:18px}
+.rev .av{width:42px;height:42px;border-radius:50%;background:repeating-linear-gradient(45deg,var(--line) 0 5px,#F7F0E2 5px 10px)}
+.rev .who b{display:block;font-size:15px}.rev .who span{font-size:13px;color:var(--mute)}
+.rev.ph{border:2px dashed var(--line);box-shadow:none;background:transparent}
+@media (max-width:860px){.revs{grid-template-columns:1fr}}
+
+/* pricing */
+.buy{background:#fff;border-radius:34px;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;box-shadow:0 30px 60px rgba(27,25,52,.12)}
+.buy .l{padding:48px}
+.buy .l h3{font-size:34px;font-weight:900}
+.buy .l ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.buy .l li{display:flex;gap:12px;font-size:17px}
+.buy .l li::before{content:'';flex:none;width:22px;height:22px;border-radius:50%;background:var(--grn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;margin-top:2px}
+.buy .r{background:var(--cream);padding:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-left:2px dashed var(--line)}
+.buy .r .big{font-size:72px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.buy .r s{color:var(--mute);font-size:22px}
+.buy .r .save{background:var(--grn-s);color:#0B7A54;font-weight:800;font-size:14px;border-radius:999px;padding:6px 14px;margin-top:10px}
+.buy .r .btn{margin-top:26px;width:100%}
+.buy .r .cd2{margin-top:18px;font-size:14px;font-weight:600;color:var(--ink2)}
+.buy .r .cd2 .cd span{background:var(--ink);color:#fff}
+.buy .r .pay{margin-top:16px;font-size:13px;color:var(--mute)}
+.seal{display:flex;gap:22px;align-items:center;margin-top:30px;background:var(--grn-s);border-radius:24px;padding:22px 26px}
+.seal .s{flex:none;width:96px;height:96px;border-radius:50%;background:var(--grn);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 6px #fff,0 0 0 9px var(--grn)}
+.seal .s b{font-size:34px;font-weight:900;line-height:1}.seal .s span{font-size:11px;font-weight:800;letter-spacing:.1em}
+.seal p{font-size:16px;color:#0B5A3F}
+@media (max-width:900px){.buy{grid-template-columns:1fr}.buy .r{border-left:0;border-top:2px dashed var(--line)}}
+
+/* faq */
+.faq{margin-top:34px;display:grid;gap:10px;max-width:860px}
+.faq details{background:#fff;border-radius:18px;padding:18px 22px}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:18px}
+.faq summary::after{content:'+';font-size:24px;line-height:1;color:var(--mute)}
+.faq details[open] summary::after{content:'–'}
+.faq p{margin-top:10px;color:var(--ink2);font-size:16px}
+
+.final{background:var(--red);color:#fff;text-align:center;padding:96px 0}
+.final h2{font-size:56px;font-weight:900}
+.final .ko-t{font-family:var(--disp);font-size:40px;margin-top:10px;opacity:.95}
+.final .btn{margin-top:30px;background:#fff;color:var(--ink);box-shadow:0 6px 0 #B8263A}
+
+.sticky-buy{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:12px 18px;display:none;align-items:center;gap:12px;z-index:60;box-shadow:0 -10px 30px rgba(27,25,52,.08)}
+.sticky-buy b{font-size:20px}
+.sticky-buy .btn{margin-left:auto}
+@media (max-width:760px){.sticky-buy.show{display:flex}}
+</style>
+<!-- Digistore24 promocode (affiliate tracking) -->
+<script src="https://www.digistore24.com/service/digistore.js"></script>
+<script>digistorePromocode({ "product_id": 738726, "adjust_domain": true });</script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Online course · 33 video lessons</span>
+      <h1>Business Korean<span>for SUCCESS<i>.</i></span></h1>
+      <div class="ko-t">현장에서 통하는 비즈니스 한국어</div>
+      <p class="lead">Textbook Korean sounds foreign at work. Learn the exact phrases Korean offices use every day — and the culture behind them. Taught in English by interpreter Jessica Lee.</p>
+      <div class="cta">
+        <a class="btn btn-buy btn-lg" data-buy href="#">Enroll now</a>
+        <div class="price"><b data-price></b><s data-list></s><small data-save></small></div>
+      </div>
+      <div class="trust">
+        <span><i style="background:var(--grn)"></i>60-day money-back guarantee</span>
+        <span><i style="background:var(--blu)"></i>Digital product · instant online access</span>
+        <span><i style="background:var(--yel)"></i>Secure checkout via Digistore24</span>
+      </div>
+    </div>
+    <div>
+      <div class="vid-card" id="heroVid">
+        <video src="media/welcome.mp4" poster="media/welcome.jpg" preload="metadata" playsinline></video>
+        <div class="play"><i></i><span class="cap">▶ Watch the welcome video · 1:06</span></div>
+      </div>
+      <div class="stats">
+        <div><b>22</b><span>Chapters</span></div>
+        <div><b>66</b><span>Key phrases</span></div>
+        <div><b>33</b><span>Lessons</span></div>
+        <div><b>66'</b><span>Of video</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="sec pain">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow soft">Sound familiar?</span>
+      <h2>You studied Korean. Then you walked into a Korean office.</h2>
+      <p>Business Korean runs on three things nobody teaches in class.</p></div>
+    <div class="pain-grid">
+      <div class="p"><div class="k">존댓말</div><div class="e">Honorifics</div><p>The same sentence changes depending on who you're talking to — and getting it wrong sounds rude.</p></div>
+      <div class="p"><div class="k">호칭</div><div class="e">Titles + 님</div><p>It's 김 부장님 — never a first name, never 당신. Titles change with every promotion.</p></div>
+      <div class="p"><div class="k">눈치</div><div class="e">Reading the room</div><p>"검토해 보겠습니다" ("we'll review it") often means… no. Learn to hear what isn't said.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">Before → After</span>
+      <h2>Stop sounding like a <em>textbook</em>.</h2>
+      <p>Every chapter shows you what's awkward — and what Korean colleagues actually say.</p></div>
+    <div class="cmp">
+      <div class="h" style="background:var(--red)">✕ AWKWARD</div><div class="h" style="background:var(--grn)">✓ NATURAL</div>
+      <div class="c bad"><b>당신은 언제 시간 있어요?</b><span>When do you have time?</span></div>
+      <div class="c good"><b>부장님, 언제 시간 괜찮으세요?</b><span>Director, when would suit you?</span></div>
+      <div class="c bad"><b>너무 비싸요.</b><span>It's too expensive.</span></div>
+      <div class="c good"><b>가격은 조금 더 조율이 가능할까요?</b><span>Is there room to adjust the price?</span></div>
+      <div class="c bad"><b>몰라요.</b><span>I don't know.</span></div>
+      <div class="c good"><b>확인해 보고 바로 말씀드리겠습니다.</b><span>I'll check and get right back to you.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">What you'll learn</span><h2>Everything you need for your first year at a Korean company.</h2></div>
+    <div class="learn">
+      <div style="--c:var(--red)"><b>Make a great first impression</b><p>Introduce yourself on Day 1 with 처음 뵙겠습니다 and 잘 부탁드립니다.</p></div>
+      <div style="--c:var(--yel)"><b>Master honorifics & titles</b><p>합쇼체 vs 해요체, and the title ladder from 사원 to 대표.</p></div>
+      <div style="--c:var(--blu)"><b>Communicate on every channel</b><p>Small talk, phone calls, video meetings and work chat.</p></div>
+      <div style="--c:var(--grn)"><b>Write polite Korean emails</b><p>A simple 4-part template for any request or apology.</p></div>
+      <div style="--c:var(--pnk)"><b>Get work done the Korean way</b><p>Run meetings, report conclusion-first (두괄식), present.</p></div>
+      <div style="--c:var(--pur)"><b>Negotiate & say no politely</b><p>Push back, soften disagreement, keep the door open.</p></div>
+      <div style="--c:var(--red)"><b>Read the room (눈치)</b><p>Pick up unspoken signals, give and receive feedback.</p></div>
+      <div style="--c:var(--blu)"><b>Navigate office culture</b><p>회식, business cards, holidays and job interviews.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW -->
+<section class="sec" id="preview" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">Free preview</span><h2>Try two lessons before you enroll.</h2><p>No sign-up needed. Just press play.</p></div>
+    <div class="prev">
+      <div class="card pv"><div class="vv" data-lesson="1"><video controls preload="none" poster="media/welcome.jpg" src="media/welcome.mp4"></video></div>
+        <div class="meta"><span class="tag t-grn">Free</span><b>Welcome</b><span class="muted" style="margin-left:auto">1:06</span></div></div>
+      <div class="card pv"><div class="vv" data-lesson="6"><video controls preload="none" poster="media/ch01.jpg" src="media/ch01.mp4"></video></div>
+        <div class="meta"><span class="tag t-red">Ch 01</span><b>First Greetings · 첫인사</b><span class="muted" style="margin-left:auto">2:31</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="sec" id="curriculum">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">Curriculum</span><h2>4 parts · 22 chapters · 33 lessons</h2><p>Each chapter: 3 key expressions spoken slowly → real practice (dialogue, email, chat or comparison) → grammar &amp; culture tips.</p></div>
+    <div class="parts" id="parts"></div>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">Inside the lessons</span><h2>Clear, colorful, and made for real work.</h2></div>
+    <div class="inside">
+      <div class="card"><img src="media/s07.jpg" alt="Key expressions slide"><div><b>Key expressions</b><p>3 phrases per chapter, with romanization and meaning.</p></div></div>
+      <div class="card"><img src="media/s22.jpg" alt="Role-play slide"><div><b>Real role-play</b><p>Office dialogues you'll actually have.</p></div></div>
+      <div class="card"><img src="media/s33.jpg" alt="Awkward vs natural slide"><div><b>Awkward vs natural</b><p>See the mistake — and the fix.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="sec" style="background:var(--yel-s)">
+  <div class="wrap book">
+    <img src="media/book.jpg" alt="Business Korean for SUCCESS book cover">
+    <div><span class="eyebrow">Companion book</span>
+      <h2 style="font-size:44px;font-weight:800;margin-top:18px">Study along with the full-color workbook.</h2>
+      <p style="font-size:18px;color:var(--ink2);margin-top:12px">The companion workbook <i>Business Korean for SUCCESS</i> covers the same 22 chapters, expanded with grammar, exercises and an answer key — and the key pages are included in your course downloads.</p>
+      <ul><li>Grammar points with business examples</li><li>Vocabulary lists & writing practice for every chapter</li><li>Email templates & a job-title cheat sheet</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="sec" id="instructor">
+  <div class="wrap inst">
+    <div class="ph"><img src="media/author.jpg" alt="Jessica Lee"><div class="nm">Jessica Lee<span>이주현</span></div></div>
+    <div><span class="eyebrow">Your instructor</span>
+      <h2 style="font-size:44px;font-weight:800;margin-top:18px">"I made this for your <span style="color:var(--red)">first week</span> at a Korean company."</h2>
+      <ul>
+        <li><i style="background:var(--red)"></i>Business language instructor &amp; simultaneous interpreter</li>
+        <li><i style="background:var(--yel)"></i>Former announcer, Gwangju English Broadcasting (now Gwangju Global Network)</li>
+        <li><i style="background:var(--blu)"></i>Former intern reporter, international desk, Yonhap News Agency</li>
+        <li><i style="background:var(--grn)"></i>Interpreter / MC — Invest UAE Roadshow 2025</li>
+        <li><i style="background:var(--pnk)"></i>Author of 『성공이 따라오는 비즈니스영어』 (Business English for SUCCESS)</li>
+      </ul>
+      <blockquote>"You don't need perfect grammar. You need the right phrase at the right moment. Let's learn them together — 잘 부탁드립니다!"</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<!-- Hidden until real reviews exist: remove the `hidden` attribute to show. -->
+<section class="sec" style="background:#fff" id="reviews" hidden>
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">Student reviews</span><h2>What learners say</h2><p class="muted">Placeholder slots — replace with real reviews after launch.</p></div>
+    <div class="revs">
+      <div class="card rev ph"><div class="st">★★★★★</div><p>[Student review — e.g. what changed at work after the course]</p><div class="who"><div class="av"></div><div><b>[Name]</b><span>[Role · Company / Country]</span></div></div></div>
+      <div class="card rev ph"><div class="st">★★★★★</div><p>[Student review]</p><div class="who"><div class="av"></div><div><b>[Name]</b><span>[Role · Company / Country]</span></div></div></div>
+      <div class="card rev ph"><div class="st">★★★★★</div><p>[Student review]</p><div class="who"><div class="av"></div><div><b>[Name]</b><span>[Role · Company / Country]</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="enroll">
+  <div class="wrap">
+    <div class="buy">
+      <div class="l">
+        <span class="eyebrow">Everything included</span>
+        <h3 style="margin-top:16px">Business Korean for SUCCESS</h3>
+        <ul>
+          <li>33 video lessons · 66 minutes, taught in English</li>
+          <li>22 chapters across 4 parts — Basics to Relationships</li>
+          <li>66 key business phrases with romanization</li>
+          <li>Downloadable lesson slides (PDF) &amp; phrase cheat sheet</li>
+          <li>Email templates &amp; job-title quick guide</li>
+          <li>Progress tracking in your personal classroom</li>
+          <li>Watch at your own pace, on any device</li>
+        </ul>
+
+      </div>
+      <div class="r">
+        <span class="tag t-red">Full course</span>
+        <div class="big" style="margin-top:14px" data-price></div>
+        <div><s data-list></s></div>
+        <div class="save" data-save></div>
+        <div class="muted" style="font-weight:700;margin-top:10px">One-time payment · No subscription</div>
+        <div class="muted" style="font-size:14px;margin-top:6px">Digital product: online video course + PDF downloads. Nothing is shipped.<br>60-day money-back guarantee via Digistore24.</div>
+        <a class="btn btn-buy btn-lg" data-buy href="#">Enroll now →</a>
+        <div class="pay">One-time payment · Secure checkout by Digistore24<br>Credit card · PayPal · Apple Pay · and more</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">FAQ</span><h2>Questions?</h2></div>
+    <div class="faq">
+      <details><summary>What level do I need?</summary><p>Beginner to intermediate. If you can read Hangul — even slowly — you're ready. Every phrase comes with romanization and English.</p></details>
+      <details><summary>Is the course taught in English?</summary><p>Yes. All explanations are in English, and every Korean phrase is spoken slowly and clearly, twice.</p></details>
+      <details><summary>Can I watch on my phone?</summary><p>Watch at your own pace, on any device, as many times as you like.</p></details>
+      <details><summary>How do I get access after paying?</summary><p>Right after checkout you'll receive an email with your login. You can start watching immediately.</p></details>
+      <details id="refund"><summary>What if it's not for me?</summary><p>Refunds are handled by Digistore24 according to its refund policy. You can request one via your Digistore24 order confirmation email.</p></details>
+    </div>
+    <p style="margin-top:22px"><a href="faq.html" style="font-weight:700">See all FAQs →</a></p>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Start sounding like a trusted colleague.</h2>
+    <div class="ko-t">잘 부탁드립니다!</div>
+    <a class="btn btn-lg" data-buy href="#">Enroll for <span data-price></span> →</a>
+  </div>
+</section>
+
+<div class="sticky-buy" id="stickyBuy"><div><b data-price></b> <s class="muted" data-list></s></div><a class="btn btn-buy btn-sm" data-buy href="#">Enroll now</a></div>
+<div id="site-footer"></div>
+
+<script src="assets/site.js"></script>
+<script src="assets/videos.js" onerror="this.remove()"></script>
+<script>
+// prices
+document.querySelectorAll('[data-price]').forEach(e => e.textContent = money(CONFIG.price));
+document.querySelectorAll('[data-list]').forEach(e => e.textContent = CONFIG.listPrice ? money(CONFIG.listPrice) : '');
+document.querySelectorAll('[data-save]').forEach(e => e.textContent = CONFIG.listPrice ? 'Save ' + Math.round((1 - CONFIG.price / CONFIG.listPrice) * 100) + '%' : '');
+document.querySelectorAll('[data-g]').forEach(e => e.textContent = CONFIG.guaranteeDays);
+document.querySelectorAll('[data-buy]').forEach(a => a.href = buyUrl());
+
+// evergreen countdown
+(function () {
+  let end = +localStorage.getItem('jbk_offer_end');
+  if (!end || end < Date.now()) { end = Date.now() + CONFIG.offerHours * 3600e3; localStorage.setItem('jbk_offer_end', end); }
+  const els = document.querySelectorAll('[data-cd]');
+  const tick = () => {
+    const s = Math.max(0, Math.floor((end - Date.now()) / 1000));
+    const d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
+    const p = n => String(n).padStart(2, '0');
+    els.forEach(e => e.innerHTML = `<span>${d}d</span><span>${p(h)}h</span><span>${p(m)}m</span><span>${p(ss)}s</span>`);
+  };
+  tick(); setInterval(tick, 1000);
+})();
+
+// hero video
+(function () {
+  const w = document.getElementById('heroVid'), v = w.querySelector('video'), p = w.querySelector('.play');
+  p.onclick = () => {
+    p.style.display = 'none';
+    const g = bunnyGuid(1);
+    if (g) { v.remove(); w.insertAdjacentHTML('afterbegin', bunnyFrame(g, true)); }
+    else { v.controls = true; v.play(); }
+  };
+})();
+
+// Free previews: stream from Bunny (lessons 1 & 6) — falls back to local files if not mapped.
+// NOTE: keep these two lessons playable WITHOUT a token (Bunny: exclude them from Token Auth,
+// or put them in a separate public library) so visitors can watch before buying.
+function bunnyGuid(id) { return window.BUNNY && BUNNY.libraryId && BUNNY.videos && BUNNY.videos[id]; }
+function bunnyFrame(g, autoplay) {
+  return `<iframe src="https://iframe.mediadelivery.net/embed/${BUNNY.libraryId}/${g}?autoplay=${autoplay ? 'true' : 'false'}&preload=${autoplay ? 'true' : 'false'}&responsive=true" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+}
+document.querySelectorAll('.prev .vv[data-lesson]').forEach(el => {
+  const g = bunnyGuid(+el.dataset.lesson);
+  if (g) { el.style.position = 'relative'; el.innerHTML = bunnyFrame(g, false); }
+});
+
+// curriculum
+(function () {
+  const colors = { pur: 'var(--pur)', red: 'var(--red)', yel: 'var(--yel)', blu: 'var(--blu)', grn: 'var(--grn)' };
+  document.getElementById('parts').innerHTML = PARTS.map(p => {
+    const ls = LESSONS.filter(l => l.part === p.n);
+    const tot = ls.reduce((a, l) => a + l.d, 0);
+    return `<details class="part" ${p.n === 1 ? 'open' : ''}><summary>
+      <div class="pk" style="background:${colors[p.c]};${p.c === 'yel' ? 'color:var(--ink)' : ''}">${p.ko}</div>
+      <div class="pt"><b>${p.n ? 'Part ' + p.n + ' · ' : ''}${p.en}</b><span>${p.sub}</span></div>
+      <div class="pm">${ls.length} lessons · ${Math.round(tot / 60)} min</div><div class="chev"></div></summary>
+      <ol>${ls.map(l => `<li><span class="n">${String(l.id).padStart(2, '0')}</span><span>${l.ch ? 'Ch ' + String(l.ch).padStart(2, '0') + ' · ' : ''}${l.t}</span>${l.ko && l.ch ? `<span class="ko">${l.ko}</span>` : ''}${l.free ? '<span class="free">FREE</span>' : ''}<span class="d">${fmt(l.d)}</span></li>`).join('')}</ol></details>`;
+  }).join('');
+})();
+
+// sticky mobile buy bar
+(function () {
+  const sb = document.getElementById('stickyBuy');
+  addEventListener('scroll', () => sb.classList.toggle('show', scrollY > 700), { passive: true });
+})();
+</script>
+</body>
+</html>
