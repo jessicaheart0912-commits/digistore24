@@ -67,6 +67,9 @@ document.getElementById('act').onsubmit = async (ev) => {
     AUTH.login(r.email, r.token); location.href = 'classroom.html';
   } catch (x) { err.textContent = x.message; }
 };
-if (!q.get('sha_sign')) document.getElementById('act').style.display = 'none';
+const emIn = document.getElementById('em');
+if (!email) { emIn.readOnly = false; emIn.placeholder = 'The email you used at checkout'; }
+document.getElementById('act').addEventListener('submit', () => { if (!email) q.set('email', emIn.value.trim()); }, true);
+
 </script>
 </body></html>
