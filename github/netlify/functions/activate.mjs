@@ -9,9 +9,8 @@ export default async (req) => {
   if (req.method !== 'POST') return json(405, { error: 'POST only' });
   const { params = {}, password = '' } = await req.json();
   const key = process.env.DS24_THANKYOU_KEY;
-  const email = String(params.email || '').trim().toLowerCase();
+   const email = String(params.buyer_email || params.address_email || params.email || '').trim().toLowerCase();
   const orderId = String(params.order_id || '').trim();
-
   if (key) {
     if (!ds24Valid(params, key)) return json(403, { error: 'This link could not be verified. Please contact support with your order ID.' });
   } else if (!orderId || orderId.startsWith('%') || !/^[A-Za-z0-9-]{5,}$/.test(orderId)) {
