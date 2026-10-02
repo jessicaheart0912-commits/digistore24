@@ -1,4 +1,5 @@
 [build]
+  base = "github"
   publish = "."
   functions = "netlify/functions"
 
