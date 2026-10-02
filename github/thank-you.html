@@ -49,7 +49,26 @@
   <p class="muted" style="margin-top:10px;font-size:14px">Need help? <a data-mail></a></p>
 </div></section>
 <div id="site-footer"></div>
-<script src="assets/site.js"></script>
+<script>
+const q = new URLSearchParams(location.search);
+const pick = (...k) => { for (const x of k) { const v = q.get(x); if (v && !v.startsWith('%') && !v.startsWith('[')) return v; } return ''; };
+const email = pick('email', 'buyer_email', 'address_email'), oid = pick('order_id', 'order_item_id');
+const emIn = document.getElementById('em');
+if (email) { emIn.value = email; } else { emIn.readOnly = false; emIn.placeholder = 'The email you used at checkout'; }
+document.getElementById('order').innerHTML = oid ? `Order <b>#${oid}</b>${email ? ' · ' + email : ''}` : 'Order confirmation sent by <b>Digistore24</b>';
+document.getElementById('act').onsubmit = async (ev) => {
+  ev.preventDefault();
+  const err = document.getElementById('aerr'); err.textContent = '';
+  const params = Object.fromEntries(q);
+  params.email = emIn.value.trim();
+  if (oid) params.order_id = oid;
+  try {
+    const r = await AUTH.api('/api/activate', { params, password: document.getElementById('pw').value });
+    AUTH.login(r.email, r.token); location.href = 'classroom.html';
+  } catch (x) { err.textContent = x.message; }
+};
+</script>
+
 <script>
 // Digistore24 "Thank you URL" can append order info, e.g.
 //   thank-you.html?order_id=%ORDER_ID%&email=%EMAIL%
