@@ -9,7 +9,7 @@ window.CONFIG = {
   domain: 'jessicabusinesskorean.com',
   course: 'Business Korean for SUCCESS',
   price: 84.99,
-  listPrice: 148,           // strike-through "regular" price — edit or set null
+  listPrice: null,           // strike-through "regular" price — edit or set null
   currency: 'USD',
   guaranteeDays: 60,
   // Digistore24 voucher that reduces the $148 list price to $84.99 (create it in Digistore24 → Marketing → Vouchers)
@@ -138,9 +138,9 @@ function __jbkChrome() {
   if (f) f.outerHTML = `<footer class="site-f"><div class="band"></div><div class="wrap">
     <div>${logo}<p style="margin-top:14px;font-size:15px;max-width:320px">Real Korean for the Korean workplace — by interpreter &amp; business-language instructor Jessica Lee (이주현).</p></div>
     <div><h4>Course</h4><a href="index.html#curriculum">Curriculum</a><a href="index.html#preview">Free preview</a><a href="classroom.html">Classroom</a><a href="resources.html">Downloads</a></div>
-    <div><h4>Support</h4><a href="faq.html">FAQ</a><a href="faq.html#refund">Refund policy</a><a href="mailto:${CONFIG.supportEmail}">${CONFIG.supportEmail}</a></div>
-    <div><h4>Legal</h4><a href="terms.html">Terms of use</a><a href="terms.html#privacy">Privacy policy</a><a href="legal.html">Legal information</a></div>
-    <div class="fine">© 2026 Jessica Lee (이주현). All rights reserved. · Payments are processed securely by <b>Digistore24</b>, our authorized reseller. Digistore24 is the merchant of record for all orders.</div>
+    <div><h4>Support</h4><a href="faq.html">FAQ</a><a href="faq.html#refund">Refund policy</a><a href="contact.html">Contact us</a><a href="mailto:${CONFIG.supportEmail}">${CONFIG.supportEmail}</a></div>
+    <div><h4>Legal</h4><a href="terms.html">Terms &amp; Conditions</a><a href="terms.html#privacy">Privacy Policy</a><a href="contact.html">Contact us</a><a href="legal.html">Legal information</a></div>
+    <div class="fine">© 2026 Jessica Lee (이주현). All rights reserved. · Payments are processed securely by our authorized reseller.</div>
   </div></footer>`;
   document.querySelectorAll('[data-buy]').forEach((a) => (a.href = buyUrl()));
   document.querySelectorAll('[data-vat]').forEach((e) => (e.textContent = CONFIG.vatId));
