@@ -445,10 +445,7 @@ function bunnyGuid(id) { return window.BUNNY && BUNNY.libraryId && BUNNY.videos 
 function bunnyFrame(g, autoplay) {
   return `<iframe src="https://iframe.mediadelivery.net/embed/${BUNNY.libraryId}/${g}?autoplay=${autoplay ? 'true' : 'false'}&preload=${autoplay ? 'true' : 'false'}&responsive=true" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
 }
-document.querySelectorAll('.prev .vv[data-lesson]').forEach(el => {
-  const g = bunnyGuid(+el.dataset.lesson);
-  if (g) { el.style.position = 'relative'; el.innerHTML = bunnyFrame(g, false); }
-});
+
 
 // curriculum
 (function () {
