@@ -202,7 +202,7 @@
       <div class="trust">
         <span><i style="background:var(--grn)"></i>60-day money-back guarantee</span>
         <span><i style="background:var(--blu)"></i>Digital product · instant online access</span>
-        <span><i style="background:var(--yel)"></i>Secure checkout via Digistore24</span>
+        <span><i style="background:var(--yel)"></i>Secure checkout</span>
       </div>
     </div>
     <div>
@@ -369,9 +369,9 @@
         <div><s data-list></s></div>
         <div class="save" data-save></div>
         <div class="muted" style="font-weight:700;margin-top:10px">One-time payment · No subscription</div>
-        <div class="muted" style="font-size:14px;margin-top:6px">Digital product: online video course + PDF downloads. Nothing is shipped.<br>60-day money-back guarantee via Digistore24.</div>
+        <div class="muted" style="font-size:14px;margin-top:6px">Digital product: online video course + PDF downloads. Nothing is shipped.<br>60-day money-back guarantee.</div>
         <a class="btn btn-buy btn-lg" data-buy href="#">Enroll now →</a>
-        <div class="pay">One-time payment · Secure checkout by Digistore24<br>Credit card · PayPal · Apple Pay · and more</div>
+        <div class="pay">One-time payment · Secure checkout<br>Credit card · PayPal · Apple Pay · and more</div>
       </div>
     </div>
   </div>
@@ -386,7 +386,7 @@
       <details><summary>Is the course taught in English?</summary><p>Yes. All explanations are in English, and every Korean phrase is spoken slowly and clearly, twice.</p></details>
       <details><summary>Can I watch on my phone?</summary><p>Watch at your own pace, on any device, as many times as you like.</p></details>
       <details><summary>How do I get access after paying?</summary><p>Right after checkout you'll receive an email with your login. You can start watching immediately.</p></details>
-      <details id="refund"><summary>What if it's not for me?</summary><p>Refunds are handled by Digistore24 according to its refund policy. You can request one via your Digistore24 order confirmation email.</p></details>
+      <details id="refund"><summary>What if it's not for me?</summary><p>You can request a full refund within 60 days of purchase via the link in your order confirmation email.</p></details>
     </div>
     <p style="margin-top:22px"><a href="faq.html" style="font-weight:700">See all FAQs →</a></p>
   </div>
@@ -441,7 +441,7 @@ document.querySelectorAll('[data-buy]').forEach(a => a.href = buyUrl());
 // Free previews: stream from Bunny (lessons 1 & 6) — falls back to local files if not mapped.
 // NOTE: keep these two lessons playable WITHOUT a token (Bunny: exclude them from Token Auth,
 // or put them in a separate public library) so visitors can watch before buying.
-function bunnyGuid(id) { return window.BUNNY && BUNNY.libraryId && BUNNY.videos && BUNNY.videos[id]; }
+function bunnyGuid(id) { return ''; } // free previews play the local files (Bunny is token-protected)
 function bunnyFrame(g, autoplay) {
   return `<iframe src="https://iframe.mediadelivery.net/embed/${BUNNY.libraryId}/${g}?autoplay=${autoplay ? 'true' : 'false'}&preload=${autoplay ? 'true' : 'false'}&responsive=true" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
 }
