@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Downloads — Business Korean for SUCCESS</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js"></script>
+<script>AUTH.require();</script>
+<style>
+.dls{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.dl{padding:24px;display:flex;flex-direction:column}
+.dl .ic{width:56px;height:68px;border-radius:10px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;color:#fff;font-weight:900;font-size:13px;letter-spacing:.06em;position:relative}
+.dl .ic::before{content:'';position:absolute;right:0;top:0;border-left:16px solid rgba(255,255,255,.35);border-bottom:16px solid rgba(255,255,255,.35);border-top:16px solid var(--cream);border-right:16px solid var(--cream);border-radius:0 10px 0 4px}
+.dl b{font-size:18px;margin-top:16px}
+.dl p{font-size:15px;color:var(--ink2);margin-top:6px;flex:1}
+.dl .m{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+.dl .m span{font-size:13px;color:var(--mute);font-weight:600}
+.grp{margin-top:44px}
+.grp h2{font-size:24px;font-weight:800;display:flex;gap:10px;align-items:center}
+.grp h2 i{width:14px;height:14px;border-radius:4px}
+@media (max-width:900px){.dls{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div id="site-header" data-mode="app"></div>
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow">Student downloads</span>
+  <h1>Your course materials</h1>
+  <p>Everything you need to review, practice and use at work. Files are yours to keep.</p>
+</div></section>
+<div class="wrap" style="padding-bottom:90px" id="root"></div>
+<div id="site-footer"></div>
+<script>
+const G=[
+ {t:'Start here',c:'var(--pur)',items:[
+  ['PDF','var(--red)','Course workbook — lesson slides','All 55 lesson slides in one PDF. Print it or read along.','12 MB','downloads/slides-full.pdf'],
+  ['PDF','var(--yel)','66 Key Phrases cheat sheet','Every key expression with romanization and meaning on 3 pages.','1.2 MB','downloads/cheatsheet.pdf'],
+  ['PDF','var(--blu)','Job titles & forms of address','사원 → 대표, plus 님 / 씨 rules and the three golden rules.','0.4 MB','downloads/titles.pdf'],
+ ]},
+ {t:'Templates',c:'var(--grn)',items:[
+  ['PDF','var(--blu)','5 Korean business email templates','Introduction · Request · Schedule · Apology · Thank-you — ready to copy.','0.5 MB','downloads/email-templates.pdf'],
+  ['PDF','var(--grn)','Self-introduction script','Fill-in-the-blank script for Day 1 and job interviews.','0.3 MB','downloads/self-intro.pdf'],
+  ['PDF','var(--pnk)','회식 survival card','Do & don’t list for company dinners — fits in your wallet.','0.1 MB','downloads/hoesik-card.pdf'],
+  ['PDF','var(--pur)','Answer key','Model answers for all practice exercises.','0.4 MB','downloads/answer-key.pdf'],
+ ]},
+ {t:'Slides by part',c:'var(--red)',items:[
+  ['PDF','var(--red)','Part 1 · 기초 Basics','Chapters 01–04 slides.','3 MB','downloads/part1.pdf'],
+  ['PDF','var(--yel)','Part 2 · 소통 Communication','Chapters 05–09 slides.','3 MB','downloads/part2.pdf'],
+  ['PDF','var(--blu)','Part 3 · 업무 Workflows','Chapters 10–16 slides.','4 MB','downloads/part3.pdf'],
+  ['PDF','var(--grn)','Part 4 · 관계 Relationships','Chapters 17–22 + review slides.','4 MB','downloads/part4.pdf'],
+ ]},
+];
+document.getElementById('root').innerHTML=G.map(g=>`<div class="grp"><h2><i style="background:${g.c}"></i>${g.t}</h2><div class="dls" style="margin-top:18px">${g.items.map(([ty,c,t,d,s,href])=>`<div class="card dl"><div class="ic" style="background:${c}">${ty}</div><b>${t}</b><p>${d}</p><div class="m"><span>${ty} · ${s}</span><a class="btn btn-ink btn-sm" href="${href}" download onclick="toast('Download starting…')">Download</a></div></div>`).join('')}</div></div>`).join('');
+</script>
+</body></html>
