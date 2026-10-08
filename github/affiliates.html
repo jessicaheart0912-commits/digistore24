@@ -40,15 +40,15 @@
 <div id="site-header"></div>
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Affiliate program · via Digistore24</span>
-  <h1>Promote Business Korean — earn <span style="color:var(--red)">50%</span> per sale.</h1>
+  <h1>Promote Business Korean — earn <span style="color:var(--red)">30%</span> per sale.</h1>
   <p>Share a course people actually need: real workplace Korean for the millions working with Korean companies. Digistore24 tracks every sale and pays you automatically.</p>
   <div class="kpis">
-    <div style="--c:var(--red)"><b>50%</b><span>Commission per sale</span></div>
+    <div style="--c:var(--red)"><b>30%</b><span>Commission per sale</span></div>
     <div style="--c:var(--yel)"><b data-c></b><span>You earn per sale</span></div>
     <div style="--c:var(--blu)"><b>180</b><span>Days cookie</span></div>
     <div style="--c:var(--grn)"><b>33</b><span>Video lessons</span></div>
   </div>
-  <p class="muted" style="font-size:13px;margin-top:10px">Figures are placeholders — set commission &amp; cookie duration in your Digistore24 product settings and update this page.</p>
+  
 </div></section>
 
 <section class="sec" style="padding-top:30px"><div class="wrap">
@@ -94,7 +94,7 @@
 <div id="site-footer"></div>
 <script src="assets/site.js"></script>
 <script>
-document.querySelectorAll('[data-c]').forEach(e=>e.textContent=money(Math.round(CONFIG.price*0.5*100)/100));
+document.querySelectorAll('[data-c]').forEach(e=>e.textContent=money(Math.round(CONFIG.price*0.3*100)/100));
 document.querySelectorAll('[data-g]').forEach(e=>e.textContent=CONFIG.guaranteeDays);
 const out=document.getElementById('out');
 document.getElementById('mk').onclick=()=>{const v=document.getElementById('aid').value.trim().replace(/[^\w.-]/g,'');if(!v){toast('Enter your Digistore24 ID first');return;}out.value=`https://www.checkout-ds24.com/redir/738726/${v}/`;toast('Link created!');};
@@ -127,4 +127,5 @@ Take a look here: [YOUR LINK]
 document.getElementById('copies').innerHTML=C.map(([t,b],i)=>`<div class="card copyb"><div class="h"><b>${t}</b><button class="btn btn-ghost btn-sm" data-i="${i}">Copy</button></div><pre>${b.replace(/</g,'&lt;')}</pre></div>`).join('');
 document.querySelectorAll('#copies button').forEach(b=>b.onclick=()=>{navigator.clipboard?.writeText(C[b.dataset.i][1].replace('[YOUR LINK]',out.value));toast('Copied with your link');});
 </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 </body></html>
